@@ -1,0 +1,1304 @@
+diff -urN /home/vodinhlong/xv6-hdh/.git/FETCH_HEAD /home/vodinhlong/xv6-labs-2024/.git/FETCH_HEAD
+--- /home/vodinhlong/xv6-hdh/.git/FETCH_HEAD	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/FETCH_HEAD	2024-11-24 17:52:16.163934048 +0000
+@@ -0,0 +1,10 @@
++79e8024d61c3dd92ccf064fc67bb99cb999f70ab		branch 'util' of git://g.csail.mit.edu/xv6-labs-2024
++19fa72d7dccf193c7e09789db708443736c2954c	not-for-merge	branch 'cow' of git://g.csail.mit.edu/xv6-labs-2024
++408565dc36c7595de3e68284a3789c081901b88f	not-for-merge	branch 'fs' of git://g.csail.mit.edu/xv6-labs-2024
++fc27289d78a415ed4e4264a80b88c8496db70eef	not-for-merge	branch 'lock' of git://g.csail.mit.edu/xv6-labs-2024
++6dd1443e74895a3953d837106392a9ad538fbab2	not-for-merge	branch 'mmap' of git://g.csail.mit.edu/xv6-labs-2024
++0b94a6a45fc79ad87112d16622bb5f2f130c893b	not-for-merge	branch 'net' of git://g.csail.mit.edu/xv6-labs-2024
++db30f8d9f46732d926995fb97a2ea0362f0654ee	not-for-merge	branch 'pgtbl' of git://g.csail.mit.edu/xv6-labs-2024
++de247db5e6384b138f270e0a7c745989b5a9c23b	not-for-merge	branch 'riscv' of git://g.csail.mit.edu/xv6-labs-2024
++d5b09ff4571e07f6d996fdf7ce1533afc19a6978	not-for-merge	branch 'syscall' of git://g.csail.mit.edu/xv6-labs-2024
++814d126edf03b5498dbc7e0796190b938837a851	not-for-merge	branch 'traps' of git://g.csail.mit.edu/xv6-labs-2024
+diff -urN /home/vodinhlong/xv6-hdh/.git/HEAD /home/vodinhlong/xv6-labs-2024/.git/HEAD
+--- /home/vodinhlong/xv6-hdh/.git/HEAD	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/HEAD	2024-11-24 17:52:19.342909276 +0000
+@@ -1 +1 @@
+-ref: refs/heads/main
++ref: refs/heads/syscall
+diff -urN /home/vodinhlong/xv6-hdh/.git/config /home/vodinhlong/xv6-labs-2024/.git/config
+--- /home/vodinhlong/xv6-hdh/.git/config	2024-11-24 17:14:23.412995026 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/config	2024-11-24 17:52:19.383027292 +0000
+@@ -4,9 +4,13 @@
+ 	bare = false
+ 	logallrefupdates = true
+ [remote "origin"]
+-	url = https://github.com/JakePham23/xv6-hdh.git
++	url = git://g.csail.mit.edu/xv6-labs-2024
+ 	fetch = +refs/heads/*:refs/remotes/origin/*
+-[branch "main"]
++[branch "util"]
+ 	remote = origin
+-	merge = refs/heads/main
+-	vscode-merge-base = origin/main
++	merge = refs/heads/util
++	vscode-merge-base = origin/util
++[branch "syscall"]
++	remote = origin
++	merge = refs/heads/syscall
++	vscode-merge-base = origin/syscall
+Binary files /home/vodinhlong/xv6-hdh/.git/index and /home/vodinhlong/xv6-labs-2024/.git/index differ
+diff -urN /home/vodinhlong/xv6-hdh/.git/logs/HEAD /home/vodinhlong/xv6-labs-2024/.git/logs/HEAD
+--- /home/vodinhlong/xv6-hdh/.git/logs/HEAD	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/logs/HEAD	2024-11-24 17:52:19.342909276 +0000
+@@ -1 +1,2 @@
+-0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
++0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
++79e8024d61c3dd92ccf064fc67bb99cb999f70ab d5b09ff4571e07f6d996fdf7ce1533afc19a6978 vodinhlong <vodinhlong@MSI.> 1732470739 +0000	checkout: moving from util to syscall
+diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/main /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/main
+--- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/main	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/main	1970-01-01 00:00:00.000000000 +0000
+@@ -1 +0,0 @@
+-0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
+diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/syscall /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/syscall
+--- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/syscall	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/syscall	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1 @@
++0000000000000000000000000000000000000000 d5b09ff4571e07f6d996fdf7ce1533afc19a6978 vodinhlong <vodinhlong@MSI.> 1732470739 +0000	branch: Created from refs/remotes/origin/syscall
+diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/util /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/util
+--- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/util	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/util	2024-11-24 17:51:55.058808634 +0000
+@@ -0,0 +1 @@
++0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
+diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/remotes/origin/HEAD /home/vodinhlong/xv6-labs-2024/.git/logs/refs/remotes/origin/HEAD
+--- /home/vodinhlong/xv6-hdh/.git/logs/refs/remotes/origin/HEAD	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/remotes/origin/HEAD	2024-11-24 17:51:55.058808634 +0000
+@@ -1 +1 @@
+-0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
++0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.idx and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.idx differ
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.pack and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.pack differ
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.rev and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.rev differ
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.idx and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.idx differ
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.pack and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.pack differ
+Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.rev and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.rev differ
+diff -urN /home/vodinhlong/xv6-hdh/.git/packed-refs /home/vodinhlong/xv6-labs-2024/.git/packed-refs
+--- /home/vodinhlong/xv6-hdh/.git/packed-refs	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/packed-refs	2024-11-24 17:51:55.058808634 +0000
+@@ -1,2 +1,11 @@
+ # pack-refs with: peeled fully-peeled sorted 
+-4f3bf8a46c547fcb485cacb97307710afda6fc8c refs/remotes/origin/main
++19fa72d7dccf193c7e09789db708443736c2954c refs/remotes/origin/cow
++408565dc36c7595de3e68284a3789c081901b88f refs/remotes/origin/fs
++fc27289d78a415ed4e4264a80b88c8496db70eef refs/remotes/origin/lock
++6dd1443e74895a3953d837106392a9ad538fbab2 refs/remotes/origin/mmap
++0b94a6a45fc79ad87112d16622bb5f2f130c893b refs/remotes/origin/net
++db30f8d9f46732d926995fb97a2ea0362f0654ee refs/remotes/origin/pgtbl
++de247db5e6384b138f270e0a7c745989b5a9c23b refs/remotes/origin/riscv
++d5b09ff4571e07f6d996fdf7ce1533afc19a6978 refs/remotes/origin/syscall
++814d126edf03b5498dbc7e0796190b938837a851 refs/remotes/origin/traps
++79e8024d61c3dd92ccf064fc67bb99cb999f70ab refs/remotes/origin/util
+diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/main /home/vodinhlong/xv6-labs-2024/.git/refs/heads/main
+--- /home/vodinhlong/xv6-hdh/.git/refs/heads/main	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/main	1970-01-01 00:00:00.000000000 +0000
+@@ -1 +0,0 @@
+-4f3bf8a46c547fcb485cacb97307710afda6fc8c
+diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/syscall /home/vodinhlong/xv6-labs-2024/.git/refs/heads/syscall
+--- /home/vodinhlong/xv6-hdh/.git/refs/heads/syscall	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/syscall	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1 @@
++d5b09ff4571e07f6d996fdf7ce1533afc19a6978
+diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/util /home/vodinhlong/xv6-labs-2024/.git/refs/heads/util
+--- /home/vodinhlong/xv6-hdh/.git/refs/heads/util	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/util	2024-11-24 17:51:55.058808634 +0000
+@@ -0,0 +1 @@
++79e8024d61c3dd92ccf064fc67bb99cb999f70ab
+diff -urN /home/vodinhlong/xv6-hdh/.git/refs/remotes/origin/HEAD /home/vodinhlong/xv6-labs-2024/.git/refs/remotes/origin/HEAD
+--- /home/vodinhlong/xv6-hdh/.git/refs/remotes/origin/HEAD	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/.git/refs/remotes/origin/HEAD	2024-11-24 17:51:55.058808634 +0000
+@@ -1 +1 @@
+-ref: refs/remotes/origin/main
++ref: refs/remotes/origin/util
+diff -urN /home/vodinhlong/xv6-hdh/Makefile /home/vodinhlong/xv6-labs-2024/Makefile
+--- /home/vodinhlong/xv6-hdh/Makefile	2024-11-24 17:30:33.748517214 +0000
++++ /home/vodinhlong/xv6-labs-2024/Makefile	2024-11-24 17:55:15.934668565 +0000
+@@ -194,11 +194,12 @@
+ 	$U/_grind\
+ 	$U/_wc\
+ 	$U/_zombie\
+-	$U/_xargs\
+ 	$U/_sysinfotest\
+ 	$U/_trace\
+ 
+ 
++
++
+ ifeq ($(LAB),syscall)
+ UPROGS += \
+ 	$U/_attack\
+diff -urN /home/vodinhlong/xv6-hdh/README /home/vodinhlong/xv6-labs-2024/README
+--- /home/vodinhlong/xv6-hdh/README	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/README	2024-11-24 17:52:19.342909276 +0000
+@@ -31,9 +31,6 @@
+ Keiichi Watanabe, Lucas Wolf, Nicolas Wolovick, wxdao, Grant Wu, x653,
+ Jindong Zhang, Icenowy Zheng, ZhUyU1997, and Zou Chang Wei.
+ 
+-The code in the files that constitute xv6 is
+-Copyright 2006-2024 Frans Kaashoek, Robert Morris, and Russ Cox.
+-
+ ERROR REPORTS
+ 
+ Please send errors and suggestions to Frans Kaashoek and Robert Morris
+diff -urN /home/vodinhlong/xv6-hdh/conf/lab.mk /home/vodinhlong/xv6-labs-2024/conf/lab.mk
+--- /home/vodinhlong/xv6-hdh/conf/lab.mk	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/conf/lab.mk	2024-11-24 17:52:19.342909276 +0000
+@@ -1 +1 @@
+-LAB=util
++LAB=syscall
+diff -urN /home/vodinhlong/xv6-hdh/different /home/vodinhlong/xv6-labs-2024/different
+--- /home/vodinhlong/xv6-hdh/different	2024-11-24 18:11:59.448558205 +0000
++++ /home/vodinhlong/xv6-labs-2024/different	1970-01-01 00:00:00.000000000 +0000
+@@ -1,149 +0,0 @@
+-diff -urN /home/vodinhlong/xv6-hdh/.git/FETCH_HEAD /home/vodinhlong/xv6-labs-2024/.git/FETCH_HEAD
+---- /home/vodinhlong/xv6-hdh/.git/FETCH_HEAD	1970-01-01 00:00:00.000000000 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/FETCH_HEAD	2024-11-24 17:52:16.163934048 +0000
+-@@ -0,0 +1,10 @@
+-+79e8024d61c3dd92ccf064fc67bb99cb999f70ab		branch 'util' of git://g.csail.mit.edu/xv6-labs-2024
+-+19fa72d7dccf193c7e09789db708443736c2954c	not-for-merge	branch 'cow' of git://g.csail.mit.edu/xv6-labs-2024
+-+408565dc36c7595de3e68284a3789c081901b88f	not-for-merge	branch 'fs' of git://g.csail.mit.edu/xv6-labs-2024
+-+fc27289d78a415ed4e4264a80b88c8496db70eef	not-for-merge	branch 'lock' of git://g.csail.mit.edu/xv6-labs-2024
+-+6dd1443e74895a3953d837106392a9ad538fbab2	not-for-merge	branch 'mmap' of git://g.csail.mit.edu/xv6-labs-2024
+-+0b94a6a45fc79ad87112d16622bb5f2f130c893b	not-for-merge	branch 'net' of git://g.csail.mit.edu/xv6-labs-2024
+-+db30f8d9f46732d926995fb97a2ea0362f0654ee	not-for-merge	branch 'pgtbl' of git://g.csail.mit.edu/xv6-labs-2024
+-+de247db5e6384b138f270e0a7c745989b5a9c23b	not-for-merge	branch 'riscv' of git://g.csail.mit.edu/xv6-labs-2024
+-+d5b09ff4571e07f6d996fdf7ce1533afc19a6978	not-for-merge	branch 'syscall' of git://g.csail.mit.edu/xv6-labs-2024
+-+814d126edf03b5498dbc7e0796190b938837a851	not-for-merge	branch 'traps' of git://g.csail.mit.edu/xv6-labs-2024
+-diff -urN /home/vodinhlong/xv6-hdh/.git/HEAD /home/vodinhlong/xv6-labs-2024/.git/HEAD
+---- /home/vodinhlong/xv6-hdh/.git/HEAD	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/HEAD	2024-11-24 17:52:19.342909276 +0000
+-@@ -1 +1 @@
+--ref: refs/heads/main
+-+ref: refs/heads/syscall
+-diff -urN /home/vodinhlong/xv6-hdh/.git/config /home/vodinhlong/xv6-labs-2024/.git/config
+---- /home/vodinhlong/xv6-hdh/.git/config	2024-11-24 17:14:23.412995026 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/config	2024-11-24 17:52:19.383027292 +0000
+-@@ -4,9 +4,13 @@
+- 	bare = false
+- 	logallrefupdates = true
+- [remote "origin"]
+--	url = https://github.com/JakePham23/xv6-hdh.git
+-+	url = git://g.csail.mit.edu/xv6-labs-2024
+- 	fetch = +refs/heads/*:refs/remotes/origin/*
+--[branch "main"]
+-+[branch "util"]
+- 	remote = origin
+--	merge = refs/heads/main
+--	vscode-merge-base = origin/main
+-+	merge = refs/heads/util
+-+	vscode-merge-base = origin/util
+-+[branch "syscall"]
+-+	remote = origin
+-+	merge = refs/heads/syscall
+-+	vscode-merge-base = origin/syscall
+-Binary files /home/vodinhlong/xv6-hdh/.git/index and /home/vodinhlong/xv6-labs-2024/.git/index differ
+-diff -urN /home/vodinhlong/xv6-hdh/.git/logs/HEAD /home/vodinhlong/xv6-labs-2024/.git/logs/HEAD
+---- /home/vodinhlong/xv6-hdh/.git/logs/HEAD	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/logs/HEAD	2024-11-24 17:52:19.342909276 +0000
+-@@ -1 +1,2 @@
+--0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
+-+0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
+-+79e8024d61c3dd92ccf064fc67bb99cb999f70ab d5b09ff4571e07f6d996fdf7ce1533afc19a6978 vodinhlong <vodinhlong@MSI.> 1732470739 +0000	checkout: moving from util to syscall
+-diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/main /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/main
+---- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/main	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/main	1970-01-01 00:00:00.000000000 +0000
+-@@ -1 +0,0 @@
+--0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
+-diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/syscall /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/syscall
+---- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/syscall	1970-01-01 00:00:00.000000000 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/syscall	2024-11-24 17:52:19.342909276 +0000
+-@@ -0,0 +1 @@
+-+0000000000000000000000000000000000000000 d5b09ff4571e07f6d996fdf7ce1533afc19a6978 vodinhlong <vodinhlong@MSI.> 1732470739 +0000	branch: Created from refs/remotes/origin/syscall
+-diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/util /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/util
+---- /home/vodinhlong/xv6-hdh/.git/logs/refs/heads/util	1970-01-01 00:00:00.000000000 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/heads/util	2024-11-24 17:51:55.058808634 +0000
+-@@ -0,0 +1 @@
+-+0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
+-diff -urN /home/vodinhlong/xv6-hdh/.git/logs/refs/remotes/origin/HEAD /home/vodinhlong/xv6-labs-2024/.git/logs/refs/remotes/origin/HEAD
+---- /home/vodinhlong/xv6-hdh/.git/logs/refs/remotes/origin/HEAD	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/logs/refs/remotes/origin/HEAD	2024-11-24 17:51:55.058808634 +0000
+-@@ -1 +1 @@
+--0000000000000000000000000000000000000000 4f3bf8a46c547fcb485cacb97307710afda6fc8c vodinhlong <vodinhlong@MSI.> 1732468448 +0000	clone: from https://github.com/JakePham23/xv6-hdh.git
+-+0000000000000000000000000000000000000000 79e8024d61c3dd92ccf064fc67bb99cb999f70ab vodinhlong <vodinhlong@MSI.> 1732470715 +0000	clone: from git://g.csail.mit.edu/xv6-labs-2024
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.idx and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.idx differ
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.pack and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.pack differ
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.rev and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-a55002ed3ee2cd78e07e5865f33b5045ca0a397f.rev differ
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.idx and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.idx differ
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.pack and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.pack differ
+-Binary files /home/vodinhlong/xv6-hdh/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.rev and /home/vodinhlong/xv6-labs-2024/.git/objects/pack/pack-ab0555dd5d288cd72338ba983d19cc91ff411b0f.rev differ
+-diff -urN /home/vodinhlong/xv6-hdh/.git/packed-refs /home/vodinhlong/xv6-labs-2024/.git/packed-refs
+---- /home/vodinhlong/xv6-hdh/.git/packed-refs	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/packed-refs	2024-11-24 17:51:55.058808634 +0000
+-@@ -1,2 +1,11 @@
+- # pack-refs with: peeled fully-peeled sorted 
+--4f3bf8a46c547fcb485cacb97307710afda6fc8c refs/remotes/origin/main
+-+19fa72d7dccf193c7e09789db708443736c2954c refs/remotes/origin/cow
+-+408565dc36c7595de3e68284a3789c081901b88f refs/remotes/origin/fs
+-+fc27289d78a415ed4e4264a80b88c8496db70eef refs/remotes/origin/lock
+-+6dd1443e74895a3953d837106392a9ad538fbab2 refs/remotes/origin/mmap
+-+0b94a6a45fc79ad87112d16622bb5f2f130c893b refs/remotes/origin/net
+-+db30f8d9f46732d926995fb97a2ea0362f0654ee refs/remotes/origin/pgtbl
+-+de247db5e6384b138f270e0a7c745989b5a9c23b refs/remotes/origin/riscv
+-+d5b09ff4571e07f6d996fdf7ce1533afc19a6978 refs/remotes/origin/syscall
+-+814d126edf03b5498dbc7e0796190b938837a851 refs/remotes/origin/traps
+-+79e8024d61c3dd92ccf064fc67bb99cb999f70ab refs/remotes/origin/util
+-diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/main /home/vodinhlong/xv6-labs-2024/.git/refs/heads/main
+---- /home/vodinhlong/xv6-hdh/.git/refs/heads/main	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/main	1970-01-01 00:00:00.000000000 +0000
+-@@ -1 +0,0 @@
+--4f3bf8a46c547fcb485cacb97307710afda6fc8c
+-diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/syscall /home/vodinhlong/xv6-labs-2024/.git/refs/heads/syscall
+---- /home/vodinhlong/xv6-hdh/.git/refs/heads/syscall	1970-01-01 00:00:00.000000000 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/syscall	2024-11-24 17:52:19.342909276 +0000
+-@@ -0,0 +1 @@
+-+d5b09ff4571e07f6d996fdf7ce1533afc19a6978
+-diff -urN /home/vodinhlong/xv6-hdh/.git/refs/heads/util /home/vodinhlong/xv6-labs-2024/.git/refs/heads/util
+---- /home/vodinhlong/xv6-hdh/.git/refs/heads/util	1970-01-01 00:00:00.000000000 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/refs/heads/util	2024-11-24 17:51:55.058808634 +0000
+-@@ -0,0 +1 @@
+-+79e8024d61c3dd92ccf064fc67bb99cb999f70ab
+-diff -urN /home/vodinhlong/xv6-hdh/.git/refs/remotes/origin/HEAD /home/vodinhlong/xv6-labs-2024/.git/refs/remotes/origin/HEAD
+---- /home/vodinhlong/xv6-hdh/.git/refs/remotes/origin/HEAD	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/.git/refs/remotes/origin/HEAD	2024-11-24 17:51:55.058808634 +0000
+-@@ -1 +1 @@
+--ref: refs/remotes/origin/main
+-+ref: refs/remotes/origin/util
+-diff -urN /home/vodinhlong/xv6-hdh/Makefile /home/vodinhlong/xv6-labs-2024/Makefile
+---- /home/vodinhlong/xv6-hdh/Makefile	2024-11-24 17:30:33.748517214 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/Makefile	2024-11-24 17:55:15.934668565 +0000
+-@@ -194,11 +194,12 @@
+- 	$U/_grind\
+- 	$U/_wc\
+- 	$U/_zombie\
+--	$U/_xargs\
+- 	$U/_sysinfotest\
+- 	$U/_trace\
+- 
+- 
+-+
+-+
+- ifeq ($(LAB),syscall)
+- UPROGS += \
+- 	$U/_attack\
+-diff -urN /home/vodinhlong/xv6-hdh/README /home/vodinhlong/xv6-labs-2024/README
+---- /home/vodinhlong/xv6-hdh/README	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/README	2024-11-24 17:52:19.342909276 +0000
+-@@ -31,9 +31,6 @@
+- Keiichi Watanabe, Lucas Wolf, Nicolas Wolovick, wxdao, Grant Wu, x653,
+- Jindong Zhang, Icenowy Zheng, ZhUyU1997, and Zou Chang Wei.
+- 
+--The code in the files that constitute xv6 is
+--Copyright 2006-2024 Frans Kaashoek, Robert Morris, and Russ Cox.
+--
+- ERROR REPORTS
+- 
+- Please send errors and suggestions to Frans Kaashoek and Robert Morris
+-diff -urN /home/vodinhlong/xv6-hdh/conf/lab.mk /home/vodinhlong/xv6-labs-2024/conf/lab.mk
+---- /home/vodinhlong/xv6-hdh/conf/lab.mk	2024-11-24 17:14:08.114110735 +0000
+-+++ /home/vodinhlong/xv6-labs-2024/conf/lab.mk	2024-11-24 17:52:19.342909276 +0000
+-@@ -1 +1 @@
+--LAB=util
+-+LAB=syscall
+diff -urN /home/vodinhlong/xv6-hdh/grade-lab-syscall /home/vodinhlong/xv6-labs-2024/grade-lab-syscall
+--- /home/vodinhlong/xv6-hdh/grade-lab-syscall	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/grade-lab-syscall	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1,82 @@
++#!/usr/bin/env python3
++
++import re
++from gradelib import *
++
++r = Runner(save("xv6.out"))
++
++@test(5, "answers-syscall.txt")
++def test_answers():
++    # just a simple sanity check, will be graded manually
++    check_answers("answers-syscall.txt")
++
++@test(5, "trace 32 grep")
++def test_trace_32_grep():
++    r.run_qemu(shell_script([
++        'trace 32 grep hello README'
++    ]))
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> 0')
++
++@test(5, "trace close grep")
++def test_trace_close_grep():
++    r.run_qemu(shell_script(['trace 2097152 grep hello README']))
++    r.match('^\\d+: syscall close -> 0')
++    r.match(no=[".* syscall read .*"])
++
++@test(5, "trace exec + open grep")
++def test_trace_exec_open_grep():
++    r.run_qemu(shell_script(['trace 32896 grep hello README']))
++    r.match('^\\d+: syscall exec -> 3')
++    r.match('^\\d+: syscall open -> 3')
++    r.match(no=[".* syscall read .*"])
++
++@test(5, "trace all grep")
++def test_trace_all_grep():
++    r.run_qemu(shell_script([
++        'trace 2147483647 grep hello README'
++    ]))
++    r.match('^\\d+: syscall trace -> 0')
++    r.match('^\\d+: syscall exec -> 3')
++    r.match('^\\d+: syscall open -> 3')
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> \\d+')
++    r.match('^\\d+: syscall read -> 0')
++    r.match('^\\d+: syscall close -> 0')
++
++@test(5, "trace nothing")
++def test_trace_nothing():
++    r.run_qemu(shell_script([
++        'grep hello README'
++    ]))
++    r.match(no=[".* syscall .*"])
++
++@test(5, "trace children")
++def test_trace_children():
++    r.run_qemu(shell_script([
++        'trace 2 usertests forkforkfork'
++    ]))
++    r.match('3: syscall fork -> 4')
++    r.match('^5: syscall fork -> \\d+')
++    r.match('^6: syscall fork -> \\d+')
++    r.match('^\\d+: syscall fork -> -1')
++    r.match('^OK')
++
++@test(14, "attack")
++def test_attack():
++    r.run_qemu(shell_script([
++        'attacktest'
++    ]))
++    r.match('^OK: secret is')
++
++@test(1, "time")
++def test_time():
++    check_time()
++
++run_tests()
++
++
++
+diff -urN /home/vodinhlong/xv6-hdh/grade-lab-util /home/vodinhlong/xv6-labs-2024/grade-lab-util
+--- /home/vodinhlong/xv6-hdh/grade-lab-util	2024-11-24 17:14:08.114110735 +0000
++++ /home/vodinhlong/xv6-labs-2024/grade-lab-util	1970-01-01 00:00:00.000000000 +0000
+@@ -1,105 +0,0 @@
+-#!/usr/bin/env python3
+-
+-import re
+-from gradelib import *
+-
+-r = Runner(save("xv6.out"))
+-
+-@test(5, "sleep, no arguments")
+-def test_sleep_no_args():
+-    r.run_qemu(shell_script([
+-        'sleep'
+-    ]))
+-    r.match(no=["exec .* failed", "$ sleep\n$"])
+-
+-@test(5, "sleep, returns")
+-def test_sleep_no_args():
+-    r.run_qemu(shell_script([
+-        'sleep',
+-        'echo OK'
+-    ]))
+-    r.match('^OK$', no=["exec .* failed", "$ sleep\n$"])
+-
+-@test(10, "sleep, makes syscall")
+-def test_sleep():
+-    r.run_qemu(shell_script([
+-        'sleep 10',
+-        'echo FAIL'
+-    ]), stop_breakpoint('sys_sleep'))
+-    r.match('\\$ sleep 10', no=['FAIL'])
+-
+-@test(20, "pingpong")
+-def test_pingpong():
+-    r.run_qemu(shell_script([
+-        'pingpong', 'echo OK'
+-    ]))
+-    r.match('^\\d+: received ping$', '^\\d+: received pong$', '^OK$')
+-
+-@test(20, "primes")
+-def test_primes():
+-    r.run_qemu(shell_script([
+-        'primes', 'echo OK'
+-    ]))
+-    args = ['prime %d' % i for i in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269]]
+-    args.append('^OK$')
+-    r.match(*args)
+-
+-@test(10, "find, in current directory")
+-def test_find_curdir():
+-    fn = random_str()
+-    r.run_qemu(shell_script([
+-        'echo > %s' % fn,
+-        'find . %s' % fn
+-    ]))
+-    r.match('./%s' % fn)
+-    r.match(no=["./README", "README"])
+-
+-@test(10, "find, in sub-directory")
+-def test_find_curdir():
+-    dd = random_str()
+-    fn = random_str()
+-    r.run_qemu(shell_script([
+-        'echo > %s' % fn,
+-        'mkdir %s' % dd,
+-        'echo > %s/%s' % (dd, fn),
+-        'find %s %s' % (dd, fn)
+-    ]))
+-    r.match('%s/%s' % (dd, fn))
+-    r.match(no=['./%s' % fn])
+-
+-@test(10, "find, recursive")
+-def test_find_recursive():
+-    needle = random_str()
+-    dirs = [random_str() for _ in range(3)]
+-    r.run_qemu(shell_script([
+-        'mkdir %s' % dirs[0],
+-        'echo > %s/%s' % (dirs[0], needle),
+-        'mkdir %s/%s' % (dirs[0], dirs[1]),
+-        'echo > %s/%s/%s' % (dirs[0], dirs[1], needle),
+-        'mkdir %s' % dirs[2],
+-        'echo > %s/%s' % (dirs[2], needle),
+-        'find . %s' % needle
+-    ]))
+-    r.match('./%s/%s' % (dirs[0], needle),
+-            './%s/%s/%s' % (dirs[0], dirs[1], needle),
+-            './%s/%s' % (dirs[2], needle))
+-
+-@test(10, "xargs")
+-def test_xargs():
+-    r.run_qemu(shell_script([
+-        'sh < xargstest.sh',
+-        'echo DONE',
+-    ], 'DONE'))
+-    matches = re.findall("hello", r.qemu.output)
+-    assert_equal(len(matches), 3, "Number of appearances of 'hello'")
+-
+-@test(9, "xargs, multi-line echo")
+-def test_xargs_multiline():
+-    r.run_qemu(shell_script(['(echo 1 ; echo 2) | xargs echo']))
+-    r.match('^1$', '^2$')
+-
+-@test(1, "time")
+-def test_time():
+-    check_time()
+-    
+-run_tests()
+diff -urN /home/vodinhlong/xv6-hdh/kernel/param.h /home/vodinhlong/xv6-labs-2024/kernel/param.h
+--- /home/vodinhlong/xv6-hdh/kernel/param.h	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/kernel/param.h	2024-11-24 17:52:19.342909276 +0000
+@@ -1,8 +1,4 @@
+-#ifdef LAB_FS
+-#define NPROC        10  // maximum number of processes
+-#else
+-#define NPROC        64  // maximum number of processes (speedsup bigfile)
+-#endif
++#define NPROC        64  // maximum number of processes
+ #define NCPU          8  // maximum number of CPUs
+ #define NOFILE       16  // open files per process
+ #define NFILE       100  // open files per system
+@@ -13,21 +9,7 @@
+ #define MAXOPBLOCKS  10  // max # of blocks any FS op writes
+ #define LOGSIZE      (MAXOPBLOCKS*3)  // max data blocks in on-disk log
+ #define NBUF         (MAXOPBLOCKS*3)  // size of disk block cache
+-#ifdef LAB_FS
+-#define FSSIZE       200000  // size of file system in blocks
+-#else
+-#ifdef LAB_LOCK
+-#define FSSIZE       10000  // size of file system in blocks
+-#else
+-#define FSSIZE       2000   // size of file system in blocks
+-#endif
+-#endif
++#define FSSIZE       2000  // size of file system in blocks
+ #define MAXPATH      128   // maximum file path name
+-
+-#ifdef LAB_UTIL
+-#define USERSTACK    2     // user stack pages
+-#else
+ #define USERSTACK    1     // user stack pages
+-#endif
+-
+ 
+diff -urN /home/vodinhlong/xv6-hdh/kernel/proc.c /home/vodinhlong/xv6-labs-2024/kernel/proc.c
+--- /home/vodinhlong/xv6-hdh/kernel/proc.c	2024-11-24 18:04:03.360098559 +0000
++++ /home/vodinhlong/xv6-labs-2024/kernel/proc.c	2024-11-24 17:53:12.514731657 +0000
+@@ -295,7 +295,6 @@
+ 
+   // Allocate process.
+   if((np = allocproc()) == 0){
+-    printf("fork: allocproc failed\n");
+     return -1;
+   }
+ 
+@@ -333,7 +332,6 @@
+   np->state = RUNNABLE;
+   release(&np->lock);
+ 
+-  np->trace_mask = p->trace_mask;
+   return pid;
+ }
+ 
+diff -urN /home/vodinhlong/xv6-hdh/kernel/riscv.h /home/vodinhlong/xv6-labs-2024/kernel/riscv.h
+--- /home/vodinhlong/xv6-hdh/kernel/riscv.h	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/kernel/riscv.h	2024-11-24 17:52:19.342909276 +0000
+@@ -204,7 +204,7 @@
+ static inline void 
+ w_menvcfg(uint64 x)
+ {
+-  //asm volatile("csrw menvcfg, %0" : : "r" (x));
++  // asm volatile("csrw menvcfg, %0" : : "r" (x));
+   asm volatile("csrw 0x30a, %0" : : "r" (x));
+ }
+ 
+@@ -314,14 +314,6 @@
+   return x;
+ }
+ 
+-static inline uint64
+-r_fp()
+-{
+-  uint64 x;
+-  asm volatile("mv %0, s0" : "=r" (x) );
+-  return x;
+-}
+-
+ // read and write tp, the thread pointer, which xv6 uses to hold
+ // this core's hartid (core number), the index into cpus[].
+ static inline uint64
+@@ -362,11 +354,6 @@
+ #define PGSIZE 4096 // bytes per page
+ #define PGSHIFT 12  // bits of offset within a page
+ 
+-#ifdef LAB_PGTBL
+-#define SUPERPGSIZE (2 * (1 << 20)) // bytes per page
+-#define SUPERPGROUNDUP(sz)  (((sz)+SUPERPGSIZE-1) & ~(SUPERPGSIZE-1))
+-#endif
+-
+ #define PGROUNDUP(sz)  (((sz)+PGSIZE-1) & ~(PGSIZE-1))
+ #define PGROUNDDOWN(a) (((a)) & ~(PGSIZE-1))
+ 
+@@ -376,12 +363,6 @@
+ #define PTE_X (1L << 3)
+ #define PTE_U (1L << 4) // user can access
+ 
+-
+-
+-#if defined(LAB_MMAP) || defined(LAB_PGTBL)
+-#define PTE_LEAF(pte) (((pte) & PTE_R) | ((pte) & PTE_W) | ((pte) & PTE_X))
+-#endif
+-
+ // shift a physical address to the right place for a PTE.
+ #define PA2PTE(pa) ((((uint64)pa) >> 12) << 10)
+ 
+diff -urN /home/vodinhlong/xv6-hdh/kernel/sysinfo.h /home/vodinhlong/xv6-labs-2024/kernel/sysinfo.h
+--- /home/vodinhlong/xv6-hdh/kernel/sysinfo.h	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/kernel/sysinfo.h	2024-11-24 17:52:19.342909276 +0000
+@@ -1,4 +1,4 @@
+-struct sysinfo {
+-    uint64 freemem;   // Số lượng bộ nhớ trống (tính bằng byte)
+-    uint64 nproc;     // Số lượng tiến trình đang hoạt động
+-};
++struct sysinfo {
++  uint64 freemem;   // amount of free memory (bytes)
++  uint64 nproc;     // number of process
++};
+diff -urN /home/vodinhlong/xv6-hdh/kernel/vm.c /home/vodinhlong/xv6-labs-2024/kernel/vm.c
+--- /home/vodinhlong/xv6-hdh/kernel/vm.c	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/kernel/vm.c	2024-11-24 17:52:19.342909276 +0000
+@@ -4,6 +4,8 @@
+ #include "elf.h"
+ #include "riscv.h"
+ #include "defs.h"
++#include "spinlock.h"
++#include "proc.h"
+ #include "fs.h"
+ 
+ /*
+@@ -30,6 +32,14 @@
+   // virtio mmio disk interface
+   kvmmap(kpgtbl, VIRTIO0, VIRTIO0, PGSIZE, PTE_R | PTE_W);
+ 
++#ifdef LAB_NET
++  // PCI-E ECAM (configuration space), for pci.c
++  kvmmap(kpgtbl, 0x30000000L, 0x30000000L, 0x10000000, PTE_R | PTE_W);
++
++  // pci.c maps the e1000's registers here.
++  kvmmap(kpgtbl, 0x40000000L, 0x40000000L, 0x20000, PTE_R | PTE_W);
++#endif  
++
+   // PLIC
+   kvmmap(kpgtbl, PLIC, PLIC, 0x4000000, PTE_R | PTE_W);
+ 
+@@ -92,6 +102,11 @@
+     pte_t *pte = &pagetable[PX(level, va)];
+     if(*pte & PTE_V) {
+       pagetable = (pagetable_t)PTE2PA(*pte);
++#ifdef LAB_PGTBL
++      if(PTE_LEAF(*pte)) {
++        return pte;
++      }
++#endif
+     } else {
+       if(!alloc || (pagetable = (pde_t*)kalloc()) == 0)
+         return 0;
+@@ -125,6 +140,7 @@
+   return pa;
+ }
+ 
++
+ // add a mapping to the kernel page table.
+ // only used when booting.
+ // does not flush TLB or enable paging.
+@@ -179,15 +195,19 @@
+ {
+   uint64 a;
+   pte_t *pte;
++  int sz;
+ 
+   if((va % PGSIZE) != 0)
+     panic("uvmunmap: not aligned");
+ 
+-  for(a = va; a < va + npages*PGSIZE; a += PGSIZE){
++  for(a = va; a < va + npages*PGSIZE; a += sz){
++    sz = PGSIZE;
+     if((pte = walk(pagetable, a, 0)) == 0)
+       panic("uvmunmap: walk");
+-    if((*pte & PTE_V) == 0)
++    if((*pte & PTE_V) == 0) {
++      printf("va=%ld pte=%ld\n", a, *pte);
+       panic("uvmunmap: not mapped");
++    }
+     if(PTE_FLAGS(*pte) == PTE_V)
+       panic("uvmunmap: not a leaf");
+     if(do_free){
+@@ -227,6 +247,7 @@
+   memmove(mem, src, sz);
+ }
+ 
++
+ // Allocate PTEs and physical memory to grow process from oldsz to
+ // newsz, which need not be page aligned.  Returns new size or 0 on error.
+ uint64
+@@ -234,19 +255,23 @@
+ {
+   char *mem;
+   uint64 a;
++  int sz;
+ 
+   if(newsz < oldsz)
+     return oldsz;
+ 
+   oldsz = PGROUNDUP(oldsz);
+-  for(a = oldsz; a < newsz; a += PGSIZE){
++  for(a = oldsz; a < newsz; a += sz){
++    sz = PGSIZE;
+     mem = kalloc();
+     if(mem == 0){
+       uvmdealloc(pagetable, a, oldsz);
+       return 0;
+     }
+-    memset(mem, 0, PGSIZE);
+-    if(mappages(pagetable, a, PGSIZE, (uint64)mem, PTE_R|PTE_U|xperm) != 0){
++#ifndef LAB_SYSCALL
++    memset(mem, 0, sz);
++#endif
++    if(mappages(pagetable, a, sz, (uint64)mem, PTE_R|PTE_U|xperm) != 0){
+       kfree(mem);
+       uvmdealloc(pagetable, a, oldsz);
+       return 0;
+@@ -316,8 +341,11 @@
+   uint64 pa, i;
+   uint flags;
+   char *mem;
++  int szinc;
+ 
+-  for(i = 0; i < sz; i += PGSIZE){
++  for(i = 0; i < sz; i += szinc){
++    szinc = PGSIZE;
++    szinc = PGSIZE;
+     if((pte = walk(old, i, 0)) == 0)
+       panic("uvmcopy: pte should exist");
+     if((*pte & PTE_V) == 0)
+@@ -363,13 +391,21 @@
+ 
+   while(len > 0){
+     va0 = PGROUNDDOWN(dstva);
+-    if(va0 >= MAXVA)
++    if (va0 >= MAXVA)
+       return -1;
+-    pte = walk(pagetable, va0, 0);
+-    if(pte == 0 || (*pte & PTE_V) == 0 || (*pte & PTE_U) == 0 ||
+-       (*pte & PTE_W) == 0)
++    if((pte = walk(pagetable, va0, 0)) == 0) {
++      // printf("copyout: pte should exist 0x%x %d\n", dstva, len);
++      return -1;
++    }
++
++
++    // forbid copyout over read-only user text pages.
++    if((*pte & PTE_W) == 0)
++      return -1;
++    
++    pa0 = walkaddr(pagetable, va0);
++    if(pa0 == 0)
+       return -1;
+-    pa0 = PTE2PA(*pte);
+     n = PGSIZE - (dstva - va0);
+     if(n > len)
+       n = len;
+@@ -389,7 +425,7 @@
+ copyin(pagetable_t pagetable, char *dst, uint64 srcva, uint64 len)
+ {
+   uint64 n, va0, pa0;
+-
++  
+   while(len > 0){
+     va0 = PGROUNDDOWN(srcva);
+     pa0 = walkaddr(pagetable, va0);
+@@ -449,3 +485,20 @@
+     return -1;
+   }
+ }
++
++
++#ifdef LAB_PGTBL
++void
++vmprint(pagetable_t pagetable) {
++  // your code here
++}
++#endif
++
++
++
++#ifdef LAB_PGTBL
++pte_t*
++pgpte(pagetable_t pagetable, uint64 va) {
++  return walk(pagetable, va, 0);
++}
++#endif
+Binary files /home/vodinhlong/xv6-hdh/user/.xargs.c.swp and /home/vodinhlong/xv6-labs-2024/user/.xargs.c.swp differ
+diff -urN /home/vodinhlong/xv6-hdh/user/attack.c /home/vodinhlong/xv6-labs-2024/user/attack.c
+--- /home/vodinhlong/xv6-hdh/user/attack.c	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/attack.c	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1,13 @@
++#include "kernel/types.h"
++#include "kernel/fcntl.h"
++#include "user/user.h"
++#include "kernel/riscv.h"
++
++int
++main(int argc, char *argv[])
++{
++  // your code here.  you should write the secret to fd 2 using write
++  // (e.g., write(2, secret, 8)
++
++  exit(1);
++}
+diff -urN /home/vodinhlong/xv6-hdh/user/attacktest.c /home/vodinhlong/xv6-labs-2024/user/attacktest.c
+--- /home/vodinhlong/xv6-hdh/user/attacktest.c	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/attacktest.c	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1,107 @@
++#include "kernel/types.h"
++#include "kernel/fcntl.h"
++#include "user/user.h"
++#include "kernel/riscv.h"
++
++char secret[8];
++char output[64];
++
++// from FreeBSD.
++int
++do_rand(unsigned long *ctx)
++{
++/*
++ * Compute x = (7^5 * x) mod (2^31 - 1)
++ * without overflowing 31 bits:
++ *      (2^31 - 1) = 127773 * (7^5) + 2836
++ * From "Random number generators: good ones are hard to find",
++ * Park and Miller, Communications of the ACM, vol. 31, no. 10,
++ * October 1988, p. 1195.
++ */
++    long hi, lo, x;
++
++    /* Transform to [1, 0x7ffffffe] range. */
++    x = (*ctx % 0x7ffffffe) + 1;
++    hi = x / 127773;
++    lo = x % 127773;
++    x = 16807 * lo - 2836 * hi;
++    if (x < 0)
++        x += 0x7fffffff;
++    /* Transform to [0, 0x7ffffffd] range. */
++    x--;
++    *ctx = x;
++    return (x);
++}
++
++unsigned long rand_next = 1;
++
++int
++rand(void)
++{
++    return (do_rand(&rand_next));
++}
++
++// generate a random string of the indicated length.
++char *
++randstring(char *buf, int n)
++{
++  for(int i = 0; i < n-1; i++) {
++    buf[i] = "./abcdef"[(rand() >> 7) % 8];
++  }
++  if(n > 0)
++    buf[n-1] = '\0';
++  return buf;
++}
++
++int
++main(int argc, char *argv[])
++{
++  int pid;
++  int fds[2];
++
++  // an insecure way of generating a random string, because xv6
++  // doesn't have good source of randomness.
++  rand_next = uptime();
++  randstring(secret, 8);
++  
++  if((pid = fork()) < 0) {
++    printf("fork failed\n");
++    exit(1);   
++  }
++  if(pid == 0) {
++    char *newargv[] = { "secret", secret, 0 };
++    exec(newargv[0], newargv);
++    printf("exec %s failed\n", newargv[0]);
++    exit(1);
++  } else {
++    wait(0);  // wait for secret to exit
++    if(pipe(fds) < 0) {
++      printf("pipe failed\n");
++      exit(1);   
++    }
++    if((pid = fork()) < 0) {
++      printf("fork failed\n");
++      exit(1);   
++    }
++    if(pid == 0) {
++      close(fds[0]);
++      close(2);
++      dup(fds[1]);
++      char *newargv[] = { "attack", 0 };
++      exec(newargv[0], newargv);
++      printf("exec %s failed\n", newargv[0]);
++      exit(1);
++    } else {
++       close(fds[1]);
++      if(read(fds[0], output, 64) < 0) {
++        printf("FAIL; read failed; no secret\n");
++        exit(1);
++      }
++      if(strcmp(secret, output) == 0) {
++        printf("OK: secret is %s\n", output);
++      } else {
++        printf("FAIL: no/incorrect secret\n");
++      }
++    }
++  }
++}
+diff -urN /home/vodinhlong/xv6-hdh/user/secret.c /home/vodinhlong/xv6-labs-2024/user/secret.c
+--- /home/vodinhlong/xv6-hdh/user/secret.c	1970-01-01 00:00:00.000000000 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/secret.c	2024-11-24 17:52:19.342909276 +0000
+@@ -0,0 +1,20 @@
++#include "kernel/types.h"
++#include "kernel/fcntl.h"
++#include "user/user.h"
++#include "kernel/riscv.h"
++
++
++int
++main(int argc, char *argv[])
++{
++  if(argc != 2){
++    printf("Usage: secret the-secret\n");
++    exit(1);
++  }
++  char *end = sbrk(PGSIZE*32);
++  end = end + 9 * PGSIZE;
++  strcpy(end, "my very very very secret pw is:   ");
++  strcpy(end+32, argv[1]);
++  exit(0);
++}
++
+diff -urN /home/vodinhlong/xv6-hdh/user/sysinfotest.c /home/vodinhlong/xv6-labs-2024/user/sysinfotest.c
+--- /home/vodinhlong/xv6-hdh/user/sysinfotest.c	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/sysinfotest.c	2024-11-24 17:52:19.342909276 +0000
+@@ -1,74 +1,153 @@
+-#include "kernel/types.h"
+-#include "user/user.h"
+-#include "kernel/sysinfo.h" 
+-
+-
+-void testcall() {
+-    struct sysinfo info;
+-    if (sysinfo(&info) < 0) {
+-        printf("testcall: Failed to get system info\n");
+-        exit(1);
+-    }
+-    printf("testcall: Number of processes: %lu\n\n", info.nproc);  
+-}
+-
+-void testmem() {
+-    struct sysinfo info;
+-    if (sysinfo(&info) < 0) {
+-        printf("testmem: Failed to get system info\n\n");
+-        exit(1);
+-    }
+-    printf("testmem: Number of free memory pages before allocation: %lu\n", info.freemem); 
+-    
+-    char *p = malloc(4096); 
+-    if (p == 0) {
+-        printf("testmem: Memory allocation failed\n\n");
+-        exit(1);
+-    }
+-
+-    if (sysinfo(&info) < 0) {
+-        printf("testmem: Failed to get system info after allocation\n\n");
+-        free(p); 
+-        exit(1);
+-    }
+-    printf("testmem: Number of free memory pages after allocation: %lu\n", info.freemem); 
+-    
+-    strcpy(p, "Memory test passed!");
+-    printf("testmem: %s\n\n", p);
+-    free(p); 
+-}
+-
+-void testproc() {
+-    struct sysinfo info;
+-    if (sysinfo(&info) < 0) {
+-        printf("testproc: Failed to get system info\n\n");
+-        exit(1);
+-    }
+-    printf("testproc: Number of processes before fork: %lu\n", info.nproc);
+-    int pid = fork(); 
+-    if (pid < 0) {
+-        printf("testproc: Fork failed\n");
+-    } else if (pid == 0) {
+-        printf("testproc: This is the child process with PID: %d\n", getpid());
+-        exit(0);
+-    } else {
+-        wait(0); 
+-        if (sysinfo(&info) < 0) {
+-            printf("testproc: Failed to get system info after fork\n\n");
+-            exit(1);
+-        }
+-        printf("testproc: Number of processes after fork: %lu\n\n", info.nproc);  
+-    }
+-}
+-
+-
+-int main(int argc, char *argv[]) {
+-    printf("Starting sysinfotest...\n\n");
+-    
+-    testcall();
+-    testmem();  
+-    testproc();
+-
+-    printf("sysinfotest: OK\n"); 
+-    exit(0);
+-}
++#include "kernel/types.h"
++#include "kernel/riscv.h"
++#include "kernel/sysinfo.h"
++#include "user/user.h"
++
++
++void
++sinfo(struct sysinfo *info) {
++  if (sysinfo(info) < 0) {
++    printf("FAIL: sysinfo failed");
++    exit(1);
++  }
++}
++
++//
++// use sbrk() to count how many free physical memory pages there are.
++//
++int
++countfree()
++{
++  uint64 sz0 = (uint64)sbrk(0);
++  struct sysinfo info;
++  int n = 0;
++
++  while(1){
++    if((uint64)sbrk(PGSIZE) == 0xffffffffffffffff){
++      break;
++    }
++    n += PGSIZE;
++  }
++  sinfo(&info);
++  if (info.freemem != 0) {
++    printf("FAIL: there is no free mem, but sysinfo.freemem=%ld\n",
++      info.freemem);
++    exit(1);
++  }
++  sbrk(-((uint64)sbrk(0) - sz0));
++  return n;
++}
++
++void
++testmem() {
++  struct sysinfo info;
++  uint64 n = countfree();
++  
++  sinfo(&info);
++
++  if (info.freemem!= n) {
++    printf("FAIL: free mem %ld (bytes) instead of %ld\n", info.freemem, n);
++    exit(1);
++  }
++  
++  if((uint64)sbrk(PGSIZE) == 0xffffffffffffffff){
++    printf("sbrk failed");
++    exit(1);
++  }
++
++  sinfo(&info);
++    
++  if (info.freemem != n-PGSIZE) {
++    printf("FAIL: free mem %ld (bytes) instead of %ld\n", n-PGSIZE, info.freemem);
++    exit(1);
++  }
++  
++  if((uint64)sbrk(-PGSIZE) == 0xffffffffffffffff){
++    printf("sbrk failed");
++    exit(1);
++  }
++
++  sinfo(&info);
++    
++  if (info.freemem != n) {
++    printf("FAIL: free mem %ld (bytes) instead of %ld\n", n, info.freemem);
++    exit(1);
++  }
++}
++
++void
++testcall() {
++  struct sysinfo info;
++  
++  if (sysinfo(&info) < 0) {
++    printf("FAIL: sysinfo failed\n");
++    exit(1);
++  }
++
++  if (sysinfo((struct sysinfo *) 0xeaeb0b5b00002f5e) !=  0xffffffffffffffff) {
++    printf("FAIL: sysinfo succeeded with bad argument\n");
++    exit(1);
++  }
++}
++
++void testproc() {
++  struct sysinfo info;
++  uint64 nproc;
++  int status;
++  int pid;
++  
++  sinfo(&info);
++  nproc = info.nproc;
++
++  pid = fork();
++  if(pid < 0){
++    printf("sysinfotest: fork failed\n");
++    exit(1);
++  }
++  if(pid == 0){
++    sinfo(&info);
++    if(info.nproc != nproc+1) {
++      printf("sysinfotest: FAIL nproc is %ld instead of %ld\n", info.nproc, nproc+1);
++      exit(1);
++    }
++    exit(0);
++  }
++  wait(&status);
++  sinfo(&info);
++  if(info.nproc != nproc) {
++      printf("sysinfotest: FAIL nproc is %ld instead of %ld\n", info.nproc, nproc);
++      exit(1);
++  }
++}
++
++void testbad() {
++  int pid = fork();
++  int xstatus;
++  
++  if(pid < 0){
++    printf("sysinfotest: fork failed\n");
++    exit(1);
++  }
++  if(pid == 0){
++      sinfo(0x0);
++      exit(0);
++  }
++  wait(&xstatus);
++  if(xstatus == -1)  // kernel killed child?
++    exit(0);
++  else {
++    printf("sysinfotest: testbad succeeded %d\n", xstatus);
++    exit(xstatus);
++  }
++}
++
++int
++main(int argc, char *argv[])
++{
++  printf("sysinfotest: start\n");
++  testcall();
++  testmem();
++  testproc();
++  printf("sysinfotest: OK\n");
++  exit(0);
++}
+diff -urN /home/vodinhlong/xv6-hdh/user/xargs.c /home/vodinhlong/xv6-labs-2024/user/xargs.c
+--- /home/vodinhlong/xv6-hdh/user/xargs.c	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/xargs.c	1970-01-01 00:00:00.000000000 +0000
+@@ -1,115 +0,0 @@
+-#include "kernel/types.h"
+-#include "kernel/stat.h"
+-#include "user/user.h"
+-#include "kernel/fs.h"
+-#include "kernel/param.h"
+-
+-#define MAX_ARG_LENGTH 512
+-
+-// echo Hello World | xargs echo
+-// echo Hello World: stdout
+-// xargs echo: stdin (command)
+-
+-// convert Hello World to behind xargs echo from stdin
+-// xargs echo Hello World\n
+-
+-// first step: argc = 2; argv = ["xargs", "echo"]
+-// if argc < 2 => error command
+-// if argv[1] != "-n" => index = 1 or index = 3
+-// the goal is to set the "echo" command by index
+-
+-// if using -n, must have argument after -n. Eg: 1 2 3 4 5 | xargs -n 1 echo
+-
+-// Step 2: after that, copy the command to _argv
+-// and then, copy the rest of the arguments to _argv
+-// if the number of arguments is greater than MAXARG - 1, print error message
+-
+-// Step 3: read from stdin
+-// if the character is '\n', replace it with '\0'
+-// fork a new process
+-// copy the arguments to _argv
+-// execute the command
+-// if exec failed, print error message
+-// wait for the child process to finish
+-// if the input is too long, print error message
+-
+-
+-// argc: index của argument
+-// argv: mảng các argument
+-int main(int argc, char *argv[]){
+-    int index = 0;
+-    int _argc = 0;
+-    char *_argv[MAXARG];
+-
+-
+-    // normaly xargs command is used like this: xargs -n 1 command
+-    // or xargs ./program command 
+-    // From xargs -> argc++
+-    // if xargs -n 1 command -> index = 3
+-    if (argc < 2){
+-        fprintf(2, "Not enough arguments provided.\n");
+-        exit(1);
+-    }
+-
+-    
+-    if (strcmp(argv[1], "-n") == 0){
+-        index = 3;
+-    }else{
+-        index = 1;
+-    }
+-
+-    // check if the command is provided
+-    // if not, print error message
+-    if (index >= argc){
+-        fprintf(2, "No command specified.\n");
+-        exit(1);
+-    }
+-
+-    // copy the command to _argv
+-    _argv[_argc++] = argv[index];
+-
+-    // copy the rest of the arguments to _argv
+-    // if the number of arguments is greater than MAXARG - 1, print error message
+-    // especially, it behind the command
+-    for (int i = index + 1; i < argc; i++){
+-        if (_argc >= MAXARG - 1){
+-            fprintf(2, "xargs: too many arguments\n");
+-            exit(1);
+-        }
+-        _argv[_argc++] = argv[i];
+-    }
+-
+-    // read from stdin
+-    char buf[MAX_ARG_LENGTH];
+-    int i = 0;
+-
+-    
+-    while (read(0, &buf[i], 1)){
+-        // if the character is '\n', replace it with '\0'
+-        if (buf[i] == '\n'){
+-            buf[i] = '\0';
+-            // fork a new process
+-            if (fork() == 0){
+-                // copy the arguments to _argv
+-                _argv[_argc] = buf;
+-                // execute the command
+-                exec(_argv[0], _argv);
+-                fprintf(2, "exec failed\n");
+-                exit(1);
+-            }else{
+-                wait(0);
+-            }
+-            i = 0;
+-
+-        // the number of tokens is too long 
+-        }else{
+-            i++;
+-            if (i >= MAX_ARG_LENGTH - 1){
+-                fprintf(2, "Input too long.\n");
+-                exit(1);
+-            }
+-        }
+-    }
+-
+-    exit(0);
+-}
+\ No newline at end of file
+diff -urN /home/vodinhlong/xv6-hdh/user/xargstest.sh /home/vodinhlong/xv6-labs-2024/user/xargstest.sh
+--- /home/vodinhlong/xv6-hdh/user/xargstest.sh	2024-11-24 17:14:08.123979635 +0000
++++ /home/vodinhlong/xv6-labs-2024/user/xargstest.sh	1970-01-01 00:00:00.000000000 +0000
+@@ -1,6 +0,0 @@
+-mkdir a
+-echo hello > a/b
+-mkdir c
+-echo hello > c/b
+-echo hello > b
+-find . b | xargs grep hello

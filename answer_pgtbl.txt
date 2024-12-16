@@ -1,0 +1,3 @@
+Câu hỏi: Những lệnh gọi hệ thống nào khác trong xv6 có thể được tăng tốc bằng cách sử dụng trang chia sẻ này?
+
+Trả lời:
